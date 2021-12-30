@@ -1,0 +1,49 @@
+<style>
+    .message {
+        color: red
+    }
+    
+    form {
+        align-self: center;
+        margin-top: 5%;
+    }
+    
+    .form-group {
+        padding: 5px;
+        margin: 10px;
+    }
+</style>
+
+
+{%for message in messages%}
+<h2 class="message">{{message}}</h2>
+{% endfor %}
+<center>
+    <form method="POST" action="register">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Name</label>
+            <input type="text" class="form-control" name="username" id="username" aria-describedby="helpId" placeholder="enter username">
+
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelpId" placeholder="enter email">
+
+        </div>
+
+        <div class="form-group">
+            <label for="password">password</label>
+            <input type="password" class="form-control" name="password" id="password">
+        </div>
+
+        <div class="form-group">
+            <label for="passwordConfirm">password</label>
+            <input type="password" class="form-control" name="passwordConfirm" id="passwordConfirm">
+        </div>
+
+        <button type="submit"> submit </button>
+    </form>
+
+</center>
