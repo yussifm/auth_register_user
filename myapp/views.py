@@ -24,7 +24,8 @@ def counter(request):
     )
 
 def mypage(request):
-    return render(request=request, template_name="page.html")
+    dyLinks = [1,2,"codedstudios","@youtube", "@tiktok"]
+    return render(request=request, template_name="page.html", context={'dyL': dyLinks})
 
 def register_page(request):
   
@@ -51,3 +52,9 @@ def register_page(request):
         
     else:
         return render(request=request, template_name="register.html")
+
+
+def dypage(request, pk):
+    dyLinks = ["👍","sub❤","codedstudios👨🏾‍💻","@youtube", "@tiktok"]
+    return render(request=request, template_name="dynamicurl.html", context={'pk':pk, 'dyL': dyLinks})
+    
